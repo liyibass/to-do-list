@@ -21,6 +21,7 @@ function ListForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (input.length === 0) return;
+
     dispatch(addTask(input));
 
     setInput("");
