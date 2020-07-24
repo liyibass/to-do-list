@@ -9,7 +9,7 @@ function ListContainer() {
   return (
     <div className="ListContainer">
       <div className="header">
-        <h3>to-do</h3>
+        <h3>To-Do List</h3>
       </div>
       <hr size="1px" align="center" width="100%" />
 

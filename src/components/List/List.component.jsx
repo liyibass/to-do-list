@@ -25,9 +25,9 @@ function List({ task }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (input.length === 0) return;
 
     dispatch(editTask(task, input));
-
     setInput("");
     setSubmitFlag(false);
     setEditFlag(false);
