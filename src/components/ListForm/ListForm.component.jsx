@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./ListForm.style.scss";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/taskList/taskList.action";
 
 function ListForm() {
   const [input, setInput] = useState("");
   const [submitFlag, setSubmitFlag] = useState(false);
+
+  const dispatch = useDispatch();
 
   const changeHandler = (e) => {
     setInput(e.target.value);
@@ -16,7 +20,9 @@ function ListForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("YOYO");
+
+    dispatch(addTask(input));
+
     setInput("");
     setSubmitFlag(false);
   };
@@ -29,12 +35,12 @@ function ListForm() {
           submitHandler(e);
         }}
       >
-        <i className="fas fa-plus"></i>
+        {/* <i className="fas fa-plus"></i> */}
         <input
           type="text"
           name="input"
           value={input}
-          placeholder="Insert Task"
+          placeholder="Insert new Task"
           autoComplete="off"
           onChange={(e) => changeHandler(e)}
         />
